@@ -1,0 +1,9 @@
+.custom-menu {  
+    display: block;  
+}  
+
+@media (max-width: 768px) {  
+    .custom-menu {  
+        display: none;   
+    }  
+}  

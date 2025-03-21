@@ -1,6 +1,7 @@
+import "./About.css";
 const About = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "98vh" }}>
+    <div className="about-container">
       <h1>About Page</h1>
       <p>Your main content goes here.</p>
     </div>

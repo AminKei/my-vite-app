@@ -13,14 +13,26 @@ const Appbar = () => {
           justifyContent: "start",
         }}
       >
-        <Menu.Item key="1" icon={<HomeOutlined />}>
+        <Menu.Item
+          key="1"
+          icon={<HomeOutlined />}
+          onClick={() => (document.location = "/")}
+        >
           Home
         </Menu.Item>
-        <Menu.Item key="2" icon={<UserOutlined />}>
-          Profile
+        <Menu.Item
+          key="2"
+          icon={<UserOutlined />}
+          onClick={() => (document.location = "/about")}
+        >
+          About
         </Menu.Item>
-        <Menu.Item key="3" icon={<SettingOutlined />}>
-          Settings
+        <Menu.Item
+          key="3"
+          icon={<SettingOutlined />}
+          onClick={() => (document.location = "/contactus")}
+        >
+          ContactUs
         </Menu.Item>
       </Menu>
     </Layout>
