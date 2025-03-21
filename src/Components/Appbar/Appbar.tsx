@@ -1,5 +1,6 @@
 import { Layout, Menu } from "antd";
 import { HomeOutlined, UserOutlined, SettingOutlined } from "@ant-design/icons";
+import "Appbar.module.css";
 
 const Appbar = () => {
   return (
