@@ -1,42 +1,30 @@
-import { Layout, Menu } from "antd";
-import { HomeOutlined, UserOutlined, SettingOutlined } from "@ant-design/icons";
-import "Appbar.module.css";
+import { Avatar, Menu } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import "./Appbar.module.css";
 
 const Appbar = () => {
   return (
-    <Layout>
-      <Menu
-        mode="horizontal"
-        defaultSelectedKeys={["1"]}
-        style={{
-          lineHeight: "64px",
-          alignItems: "center",
-          justifyContent: "start",
-        }}
-      >
-        <Menu.Item
-          key="1"
-          icon={<HomeOutlined />}
-          onClick={() => (document.location = "/")}
-        >
-          Home
+    <>
+      <Menu mode="horizontal" defaultSelectedKeys={["1"]}>
+        <Menu.Item>
+          <Menu.Item key="1" onClick={() => (document.location = "/")}>
+            Home
+          </Menu.Item>
+          <Menu.Item key="2" onClick={() => (document.location = "/about")}>
+            About
+          </Menu.Item>
+          <Menu.Item key="3" onClick={() => (document.location = "/contactus")}>
+            ContactUs
+          </Menu.Item>
         </Menu.Item>
-        <Menu.Item
-          key="2"
-          icon={<UserOutlined />}
-          onClick={() => (document.location = "/about")}
-        >
-          About
-        </Menu.Item>
-        <Menu.Item
-          key="3"
-          icon={<SettingOutlined />}
-          onClick={() => (document.location = "/contactus")}
-        >
-          ContactUs
+        <Menu.Item onClick={() => (document.location = "/profile")}>
+          <Avatar
+            style={{ backgroundColor: "#0073d1" }}
+            icon={<UserOutlined />}
+          />
         </Menu.Item>
       </Menu>
-    </Layout>
+    </>
   );
 };
 

@@ -64,7 +64,7 @@ const MyMenu = () => {
     <Menu
       onClick={onClick}
       theme="light"
-      style={{ width: "300px", height: "100%" }}
+      style={{ width: "300px" }}
       selectedKeys={[current]}
       mode="vertical"
       items={items}

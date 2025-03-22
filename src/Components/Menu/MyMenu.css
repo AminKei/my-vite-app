@@ -1,9 +1,9 @@
-.custom-menu {  
-    display: block;  
-}  
+.custom-menu {
+  display: block;
+}
 
-@media (max-width: 768px) {  
-    .custom-menu {  
-        display: none;   
-    }  
-}  
+@media (max-width: 768px) {
+  .custom-menu {
+    display: none;
+  }
+}

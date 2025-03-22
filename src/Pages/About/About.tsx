@@ -1,10 +1,11 @@
-import "./About.css";
+import { Card } from "antd";
+
 const About = () => {
   return (
-    <div className="about-container">
+    <Card>
       <h1>About Page</h1>
       <p>Your main content goes here.</p>
-    </div>
+    </Card>
   );
 };
 
