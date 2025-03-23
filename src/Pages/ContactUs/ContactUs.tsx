@@ -1,16 +1,12 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Typography, Card } from "antd";
+import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   return (
-    <div className="contact-container">
-      <h1>Contact Us</h1>
-      <p>
-        If you have any questions or concerns, please don't hesitate to reach
-        out!
-      </p>
-      <p>
-        Call us: <a href="tel:09123456789">09123456789</a>
-      </p>
+    <Card size="small" title="Contact Us">
+      <Typography>
+        Call us: <Link to="tel:09123456789">09123456789</Link>
+      </Typography>
       <Form name="contact" className="contact-form" layout="vertical">
         <Form.Item
           label="Name"
@@ -42,7 +38,7 @@ const ContactUs = () => {
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </Card>
   );
 };
 

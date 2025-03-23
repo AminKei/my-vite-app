@@ -1,10 +1,11 @@
+import { Card, Typography } from "antd";
+
 const Home = () => {
-    return ( 
-        <div>
-            <h1>Home</h1>
-            
-        </div>
-     );
-}
- 
+  return (
+    <Card>
+      <Typography>Home</Typography>
+    </Card>
+  );
+};
+
 export default Home;

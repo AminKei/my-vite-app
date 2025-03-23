@@ -27,18 +27,16 @@ const Dashboard = () => {
       <Row gutter={16} style={{ marginTop: 16 }}>
         <Col span={12}>
           <Card title="Recent Activity">
-            {/* Example placeholder for recent activities */}
-            <p>User A logged in</p>
-            <p>User B completed their profile</p>
-            <p>User C made a purchase</p>
+            <Typography>User A logged in</Typography>
+            <Typography>User B completed their profile</Typography>
+            <Typography>User C made a purchase</Typography>
           </Card>
         </Col>
         <Col span={12}>
           <Card title="Statistics Overview">
-            {/* Example placeholder for statistics overview */}
-            <p>Weekly Active Users: 3000</p>
-            <p>Monthly Active Users: 10000</p>
-            <p>Revenue This Month: $5000</p>
+            <Typography>Weekly Active Users: 3000</Typography>
+            <Typography>Monthly Active Users: 10000</Typography>
+            <Typography>Revenue This Month: $5000</Typography>
           </Card>
         </Col>
       </Row>

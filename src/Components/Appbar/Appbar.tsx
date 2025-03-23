@@ -1,4 +1,4 @@
-import { Avatar, Menu } from "antd";
+import { Avatar, Button, Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./Appbar.module.css";
 
@@ -23,6 +23,7 @@ const Appbar = () => {
             icon={<UserOutlined />}
           />
         </Menu.Item>
+        <Button onClick={() => (document.location = "./signup")}>SignUp</Button>
       </Menu>
     </>
   );
