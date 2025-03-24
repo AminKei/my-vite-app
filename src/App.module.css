@@ -1,0 +1,13 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    height: 96vh;
+    padding: 10px;
+    overflow: hidden;
+    gap: 10px;
+}
+.menu_outlet{
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
