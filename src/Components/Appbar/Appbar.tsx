@@ -16,8 +16,20 @@ const Appbar = () => {
           <Menu.Item key="3" onClick={() => (document.location = "/contactus")}>
             ContactUs
           </Menu.Item>
-          <Menu.Item key="3" onClick={() => (document.location = "/components")}>
+          <Menu.Item
+            key="4"
+            onClick={() => (document.location = "/components")}
+          >
             Components
+          </Menu.Item>
+          <Menu.Item
+            key="5"
+            onClick={() => (document.location = "/datafetching")}
+          >
+            Data Fetching
+          </Menu.Item>
+          <Menu.Item key="6" onClick={() => (document.location = "/other")}>
+            Other
           </Menu.Item>
         </Menu.Item>
         <Menu.Item onClick={() => (document.location = "/profile")}>

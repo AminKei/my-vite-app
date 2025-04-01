@@ -13,6 +13,8 @@ import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import Signup from "./Pages/Signup/Signup";
 import Components from "./Pages/Components/Components";
+import DataFetching from "./Pages/DataFetching/DataFetching";
+import Other from "./Pages/DataFetching/Other";
 
 function Layout() {
   return (
@@ -35,8 +37,10 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/datafetching" element={<DataFetching  />} />
           <Route path="/" element={<Home />} />
           <Route path="/components" element={<Components />} />
+          <Route path="/other" element={<Other />} />
         </Route>
       </Routes>
     </Router>

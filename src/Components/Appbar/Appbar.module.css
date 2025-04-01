@@ -1,5 +1,5 @@
 .menu-bar {
   line-height: 64px;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
 }
