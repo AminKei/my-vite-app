@@ -1,20 +1,42 @@
-import { Button, Card, List, Spin, Typography } from "antd";
-import { usePosts } from "../../Queries/getProducts";
+import { useState } from "react";
+import { Button, Card, List, Typography } from "antd";
+import { fetchPosts } from "../../Hooks/useProducts";
+import { ProductItems } from "../../Models/Items";
 
 const DataFetching = () => {
-  const { data, error, isLoading, refetch } = usePosts();
+  const [data, setData] = useState<ProductItems[]>([]);
+  const [error, setError] = useState("");
+
+  //  const loadPosts = () => {
+  //     fetchPosts().then((r)=>{
+  //       console.log("rrrrrrrrrrr:1",  r)
+  //       setData(r)
+  //     })
+  //     .catch(e =>{
+  //       console.log("rrrrrrrrrrr:2",  e)
+  //     })ge
+  //  }
+
+  const loadPosts = async () => {
+    const r = await fetchPosts();
+    if (r.length === 0) {
+      setError("No posts found");
+    }
+    if (r.length > 0) {
+      setError("");
+    }
+    setData(r);
+  };
 
   const { Text, Title } = Typography;
 
-  if (isLoading) return <Spin size="large" />;
-  if (error)
-    return <Text type="warning">Error fetching posts: {error.message}</Text>;
+  if (error) return <Text type="warning">Error fetching posts: {error}</Text>;
 
   return (
     <Card
-      title={<Title level={4}>Posts with React Query async & await</Title>}
+      title={<Title level={4}>Posts without React Query</Title>}
       extra={
-        <Button type="primary" onClick={() => refetch()}>
+        <Button type="primary" onClick={loadPosts}>
           Refresh Data
         </Button>
       }
@@ -23,8 +45,8 @@ const DataFetching = () => {
     >
       <List
         itemLayout="vertical"
-        dataSource={data}
-        renderItem={(post: any) => (
+        dataSource={data} // Use the fetched data from state
+        renderItem={(post) => (
           <List.Item key={post.id}>
             <Text type="success">Post ID: {post.id}</Text>
             <List.Item.Meta
