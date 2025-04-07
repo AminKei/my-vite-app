@@ -1,38 +1,33 @@
-import { useEffect, useState } from "react";
-import axiosInstance from "../../axiosInstance";
-import { Card, Spin, Alert, Typography } from "antd";
+import { Card, Alert, Typography } from "antd";
 import { ProductItems } from "../../Models/Items";
+import { useEffect, useState } from "react";
+import { fetchPosts } from "../../Hooks/useProducts";
 
 const { Text } = Typography;
 
 const Other = () => {
-  const [data, setdata] = useState<ProductItems[]>([]);
-  const [loading, setloading] = useState(false);
-  const [error, seterror] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [data, setData] = useState<ProductItems[]>([]);
+  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      setloading(true);
+      setLoading(true);
       try {
-        const response = await axiosInstance.get(
-          "https://jsonplaceholder.typicode.com/posts"
-        );
-        setdata(response.data);
+        const response = await fetchPosts();
+        setData(response);
       } catch (err) {
-        setErrorMessage("Failed to fetch data");
-        seterror(true);
+        setError(true);
+        setErrorMessage(
+          err instanceof Error ? err.message : "An error occurred"
+        );
       } finally {
-        setloading(false);
+        setLoading(false);
       }
     };
-
     fetchData();
   }, []);
-
-  if (loading) {
-    return <Spin size="large" />;
-  }
 
   if (error) {
     return (
@@ -48,7 +43,7 @@ const Other = () => {
   }
 
   return (
-    <Card>
+    <Card loading={loading}>
       {data.map((item) => (
         <Card key={item.id} style={{ marginBottom: 16 }}>
           <Card.Meta title={item.title} description={item.body} />
