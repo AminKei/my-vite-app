@@ -15,6 +15,7 @@ import Signup from "./Pages/Signup/Signup";
 import Components from "./Pages/Components/Components";
 import DataFetching from "./Pages/DataFetching/DataFetching";
 import Other from "./Pages/DataFetching/Other";
+import MultiFormPage from "./Pages/MultiFormPage/MultiFormPage";
 
 function Layout() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/components" element={<Components />} />
           <Route path="/other" element={<Other />} />
+          <Route path="/multiformPage" element={<MultiFormPage />} />
         </Route>
       </Routes>
     </Router>
