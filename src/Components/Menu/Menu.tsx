@@ -1,9 +1,10 @@
-import { Menu as Menu, MenuProps } from "antd";
-import { useState } from "react";
+import { Menu as Menu, MenuProps, Button } from "antd";
+import { useState, useEffect } from "react";
 import {
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -54,22 +55,58 @@ const items: MenuItem[] = [
 
 const MyMenu = () => {
   const [current, setCurrent] = useState<string>("mail");
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [menuVisible, setMenuVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
+    if (isMobile) {
+      setMenuVisible(false);
+    }
+  };
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
   };
 
   return (
-    <Menu
-      onClick={onClick}
-      theme="light"
-      style={{ width: "300px" }}
-      selectedKeys={[current]}
-      mode="vertical"
-      items={items}
-    />
+    <div>
+      {isMobile && (
+        <Button
+          type="primary"
+          icon={<MenuOutlined />}
+          onClick={toggleMenu}
+          style={{ marginBottom: "16px" }}
+        >
+          Menu
+        </Button>
+      )}
+      {(!isMobile || menuVisible) && (
+        <Menu
+          onClick={onClick}
+          theme="light"
+          style={{ width: isMobile ? "100%" : "300px" }}
+          selectedKeys={[current]}
+          mode="vertical"
+          items={items}
+        />
+      )}
+    </div>
   );
 };
 
-export default MyMenu;  
+export default MyMenu;
