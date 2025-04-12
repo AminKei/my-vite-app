@@ -37,6 +37,12 @@ const Appbar = () => {
           >
             MultiFormPage
           </Menu.Item>
+          <Menu.Item
+            key="8"
+            onClick={() => (document.location = "/exercontext")}
+          >
+            ExerContext
+          </Menu.Item>
         </Menu.Item>
         <Menu.Item onClick={() => (document.location = "/profile")}>
           <Avatar
