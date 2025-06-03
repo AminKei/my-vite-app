@@ -17,6 +17,8 @@ import DataFetching from "./Pages/DataFetching/DataFetching";
 import Other from "./Pages/DataFetching/Other";
 import MultiFormPage from "./Pages/MultiFormPage/MultiFormPage";
 import ExerContext from "./Pages/ExerContext/ExerContext";
+import Account from "./Pages/Account/Account";
+import Setting from "./Pages/Account/Setting";
 
 function Layout() {
   return (
@@ -35,16 +37,18 @@ function App() {
     <Router>
       <Routes>
         <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/datafetching" element={<DataFetching  />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/datafetching" element={<DataFetching />} />
           <Route path="/components" element={<Components />} />
           <Route path="/other" element={<Other />} />
           <Route path="/multiformPage" element={<MultiFormPage />} />
           <Route path="/exercontext" element={<ExerContext />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/account/setting" element={<Setting />} />
         </Route>
       </Routes>
     </Router>

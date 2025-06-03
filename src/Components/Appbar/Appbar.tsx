@@ -43,6 +43,12 @@ const Appbar = () => {
           >
             ExerContext
           </Menu.Item>
+          <Menu.Item
+            key="9"
+            onClick={() => (document.location = "/account")}
+          >
+            Account
+          </Menu.Item>
         </Menu.Item>
         <Menu.Item onClick={() => (document.location = "/profile")}>
           <Avatar
@@ -50,7 +56,7 @@ const Appbar = () => {
             icon={<UserOutlined />}
           />
         </Menu.Item>
-        <Button onClick={() => (document.location = "./signup")}>SignUp</Button>
+        <Button onClick={() => (document.location = "/signup")}>SignUp</Button>
       </Menu>
     </>
   );
